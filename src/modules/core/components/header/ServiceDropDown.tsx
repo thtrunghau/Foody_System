@@ -13,7 +13,7 @@ const ServiceDropdown = ({ title, services }) => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-gray-100 px-3 py-2 rounded-md shadow hover:bg-gray-200"
+        className="bg-gray-100 px-3 py-2 rounded-sm font-sans text-base shadow hover:bg-gray-200 whitespace-nowrap"
       >
         {selectedOption || title}
       </button>

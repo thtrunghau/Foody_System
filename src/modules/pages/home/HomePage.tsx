@@ -1,9 +1,11 @@
 import Header from "../../core/components/header/Header";
+import { DeliveryFood } from './../../core/components/delivery-food/DeliveryFood';
 
 export const HomePage = () => {
   return (
-    <div className="absolute h-full w-full bg-gradient-to-t from-gray-500 to-gray-700">
+    <div className="absolute w-full h-full">
       <Header />
+      <DeliveryFood/>
     </div>
   );
 };
