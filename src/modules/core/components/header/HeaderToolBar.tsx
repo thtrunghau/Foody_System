@@ -41,7 +41,7 @@ const HeaderToolbar = () => {
   ];
 
   return (
-    <div>
+    <div className="">
       <div className=" flex items-center space-x-10 bg-white px-4 py-4 ">
         <div className="flex grow">
           <div className="flex items-center space-x-4">

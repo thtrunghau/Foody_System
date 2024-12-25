@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { RestaurantList } from './RestaurantList';
+import { RestaurantList } from '../../../restaurants/components/restaurant-delivery/RestaurantList';
 
 export const DeliveryFood = () => {
   const [selectedOption, setSelectedOption] = useState("Deal hôm nay");
