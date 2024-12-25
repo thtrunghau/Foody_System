@@ -1,15 +1,19 @@
 import { useState } from 'react';
-
-const Dropdown = ({ title, options, searchable = false }) => {
+interface DropDownProps{  
+  title: string;
+  options: string[];
+  searchable: boolean
+}
+const Dropdown : React.FC<DropDownProps> = ({ title, options, searchable = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
 
   const filteredOptions = options.filter(option => 
     option.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const handleSelect = (option) => {
+  const handleSelect = (option:string) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -18,7 +22,7 @@ const Dropdown = ({ title, options, searchable = false }) => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-gray-100 px-4 py-2 rounded-md shadow hover:bg-gray-200"
+        className="bg-gray-100 px-3 py-2 rounded-md shadow hover:bg-gray-200"
       >
         {selectedOption || title}
       </button>

@@ -2,24 +2,36 @@ import Dropdown from "./LocactionAndExplorationDropDown";
 import IconButton from "./IconButton";
 import SearchBar from "./SearchBarHeader";
 import ServiceDropdown from "./ServiceDropDown";
-import Logo from './Logo';
+import Logo from "./Logo";
+import ImageBannerHome from "./ImageBannerHome";
 
 const HeaderToolbar = () => {
-  const handleSearch = (searchTerm) => {
+  const handleSearch = (searchTerm: string) => {
     console.log("Searching for:", searchTerm);
   };
 
-  const handleFilterApply = (filter) => {
+  const handleFilterApply = (filter: string) => {
     console.log("Filter applied:", filter);
   };
 
   const locations = [
-    'Hà Nội', 'TP Hồ Chí Minh', 'Đà Nẵng', 'Cần Thơ', 'Hải Phòng', 
-    'Hải Dương', 'Nghệ An', 'Thanh Hóa', 'Bình Dương', 'Long An'
+    "Hà Nội",
+    "TP Hồ Chí Minh",
+    "Đà Nẵng",
+    "Cần Thơ",
+    "Hải Phòng",
+    "Hải Dương",
+    "Nghệ An",
+    "Thanh Hóa",
+    "Bình Dương",
+    "Long An",
   ];
-  
+
   const explorationOptions = [
-    'Khám phá 1', 'Khám phá 2', 'Khám phá 3', 'Khám phá 4'
+    "Khám phá 1",
+    "Khám phá 2",
+    "Khám phá 3",
+    "Khám phá 4",
   ];
 
   const services = [
@@ -29,56 +41,59 @@ const HeaderToolbar = () => {
   ];
 
   return (
-    <div className="ml-[5.625rem] mr-[5.625rem] flex items-center space-x-10 bg-white px-4 py-4 drop-shadow-xl">
-      <div className="flex grow">
-        <div className="flex items-center space-x-4">
-          {/* Logo */}
-          <button><Logo/></button>
+    <div>
+      <div className="ml-[5.625rem] mr-[5.625rem] flex items-center space-x-10 bg-white px-4 py-4 ">
+        <div className="flex grow">
+          <div className="flex items-center space-x-4">
+            {/* Logo */}
+            <Logo />
 
-          {/* Location Dropdown */}
-          <div>
-            <Dropdown title="Tỉnh Thành" options={locations} searchable />
+            {/* Location Dropdown */}
+            <div>
+              <Dropdown title="Tỉnh Thành" options={locations} searchable />
+            </div>
+
+            {/* Services Dropdown */}
+            <div>
+              <ServiceDropdown title="Nhu Cầu" services={services} />
+            </div>
+
+            {/* Search Bar */}
+            <SearchBar
+              onSearch={handleSearch}
+              onApplyFilter={handleFilterApply}
+            />
+
+            {/* Explore Dropdown */}
+            <Dropdown
+              title="Khám Phá"
+              options={explorationOptions}
+              searchable={false}
+            />
+
+            {/* App Button */}
+            <IconButton
+              icon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+                  />
+                </svg>
+              }
+              title="App"
+              onClick={() => console.log("App")}
+            />
           </div>
-
-          {/* Services Dropdown */}
-          <ServiceDropdown title="Nhu Cầu" services={services} />
-
-          {/* Search Bar */}
-          <SearchBar
-            onSearch={handleSearch}
-            onApplyFilter={handleFilterApply}
-          />
-
-          {/* Explore Dropdown */}
-          <Dropdown
-            title="Khám Phá"
-            options={explorationOptions}
-          />
-
-          {/* App Button */}
-          <IconButton
-            icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="size-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
-                />
-              </svg>
-            }
-            title="App"
-            onClick={() => console.log("App")}
-          />
         </div>
-      </div>
-      <div>
         <div className="flex items-center space-x-3">
           {/* Login Button */}
           <IconButton

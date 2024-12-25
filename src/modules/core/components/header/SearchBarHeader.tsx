@@ -2,7 +2,12 @@ import { useState } from "react";
 import IconButton from "./IconButton";
 import Filter from "./Filter";
 
-const SearchBar = ({ onSearch, onApplyFilter }) => {
+interface SearchBarProps{
+  onSearch: void;
+  onApplyFilter: void
+}
+
+const SearchBar : React.FC<SearchBarProps> = ({ onSearch, onApplyFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   // const [selectedFilter, setSelectedFilter] = useState("");
@@ -11,17 +16,17 @@ const SearchBar = ({ onSearch, onApplyFilter }) => {
   // const filters = ["Option 1", "Option 2", "Option 3"];
 
   const handleSearch = () => {
-    onSearch(searchTerm);
+    // onSearch(searchTerm);
   };
 
-  const handleFilterSelect = (filter) => {
+  const handleFilterSelect = (filter:boolean) => {
     setSelectedFilter(filter);
     setIsFilterOpen(false);
     onApplyFilter(filter); // Pass the selected filter to parent
   };
 
   return (
-    <div className="relative flex w-[31.25rem] items-center rounded-md bg-gray-100 px-2 py-1 shadow">
+    <div className="relative flex  w-[31.25rem] items-center rounded-md bg-gray-100 px-2 shadow">
       {/* Input Field */}
       <input
         type="text"
@@ -56,7 +61,7 @@ const SearchBar = ({ onSearch, onApplyFilter }) => {
 
         {/* Dropdown Filter */}
         {isFilterOpen && (
-          <div className="absolute mt-4 w-[31.25rem] rounded-md border bg-white p-4 shadow-md">
+          <div className="absolute mt-1 w-[18.35rem] rounded-md border bg-white shadow-md">
             <Filter />
           </div>
         )}
@@ -103,6 +108,7 @@ export default SearchBar;
 // import { useState } from "react";
 // import IconButton from "./IconButton";
 // import Filter from "./Filter"; // Import the Filter component
+// import SearchBar from './../../../search/components/SearchBar';
 
 // const SearchBar = ({ onSearch, onApplyFilter }) => {
 //   const [searchTerm, setSearchTerm] = useState("");

@@ -1,13 +1,17 @@
-import TopBar from './TopBar';
-import HeaderToolbar from './HeaderToolBar';
-import ImageBannerHome from './ImageBannerHome';
+import TopBar from "./TopBar";
+import HeaderToolbar from "./HeaderToolBar";
+import ImageBannerHome from "./ImageBannerHome";
 
 const Header = () => {
   return (
-    <header className="bg-white items-center justify-between">
-      <TopBar/>
-      <HeaderToolbar/>
-      {/* <ImageBannerHome/> */}
+    <header className="items-center justify-between bg-white">
+      <TopBar />
+      <div className="relative z-10">
+        <HeaderToolbar />
+      </div>
+      <div className="relative z-0">
+        <ImageBannerHome />
+      </div>
     </header>
   );
 };
